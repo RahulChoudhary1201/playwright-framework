@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "description": "MCP Configuration for AI-driven test automation",
+  "settings": {
+    "enableSelfHealing": true,
+    "enableAutoSuggestion": false,
+    "llmProvider": "openai",
+    "model": "gpt-4",
+    "maxTokens": 1000,
+    "temperature": 0.3
+  },
+  "prompts": {
+    "selectorHealing": {
+      "enabled": true,
+      "template": "Given the following failed selector, suggest alternatives:\n\nSelector: {selector}\nError: {error}\nHTML Context: {context}\n\nProvide 3 alternative selectors in JSON format."
+    },
+    "testGeneration": {
+      "enabled": false,
+      "template": "Generate test cases for the following scenario:\n\nPage: {page}\nFlow: {flow}\n\nGenerate happy path, negative, and edge case tests."
+    },
+    "errorAnalysis": {
+      "enabled": false,
+      "template": "Analyze this test failure:\n\nTest: {testName}\nError: {error}\nStack: {stack}\n\nProvide root cause and fix suggestions."
+    }
+  },
+  "integrations": {
+    "reportPortal": {
+      "enabled": false,
+      "url": "",
+      "apiKey": ""
+    },
+    "jira": {
+      "enabled": false,
+      "url": "",
+      "apiKey": ""
+    }
+  },
+  "selfHealing": {
+    "enabled": false,
+    "maxRetries": 3,
+    "confidenceThreshold": 0.8,
+    "fallbackStrategy": "fail",
+    "logHealingAttempts": true
+  },
+  "analytics": {
+    "trackHealingRate": true,
+    "trackFlakyTests": true,
+    "exportFormat": "json"
+  }
+}

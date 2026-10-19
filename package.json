@@ -1,0 +1,49 @@
+{
+  "name": "playwright-automation-framework",
+  "version": "1.0.0",
+  "description": "Enterprise-grade Playwright test automation framework with TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:api": "playwright test --project=api",
+    "test:e2e": "playwright test --project=chromium",
+    "test:parallel": "playwright test --workers=4",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "report": "allure serve allure-results",
+    "report:html": "playwright show-report",
+    "lint": "eslint src tests --ext .ts",
+    "lint:fix": "eslint src tests --ext .ts --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf allure-results test-results playwright-report",
+    "postinstall": "playwright install"
+  },
+  "keywords": [
+    "playwright",
+    "test-automation",
+    "e2e-testing",
+    "api-testing",
+    "typescript",
+    "page-object-model"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "allure-commandline": "^2.30.0",
+    "allure-playwright": "^3.0.6",
+    "eslint": "^9.11.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  }
+}
